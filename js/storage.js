@@ -3,7 +3,7 @@ Config.origindomain = 'play.pokemonshowdown.com';
 // address bar is `Config.origindomain`.
 Config.defaultserver = {
 	id: 'showdown',
-	host: 'petmodpalace.herokuapp.com',
+	host: 'petmodpalace-server.herokuapp.com',
 	port: 443,
 	httpport: 8000,
 	altport: 80,
@@ -222,7 +222,7 @@ if (!Storage.bg.id) {
 // localStorage is banned, and since prefs are cached in other
 // places in certain cases.
 
-Storage.origin = 'petmodpalace.herokuapp.com';
+Storage.origin = 'petmodpalace-server.herokuapp.com';
 
 Storage.prefs = function (prop, value, save) {
 	if (value === undefined) {
