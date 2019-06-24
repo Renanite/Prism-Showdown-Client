@@ -690,6 +690,17 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 			if (minGen === 1) learnsets[id][moveid] = '12' + learnsets[id][moveid];
 		}
 	}
+	const PrismLearnsets = Dex.mod('prism').data.Learnsets;
+	for (const id in PrismLearnsets) {
+		const learnset = PrismLearnsets[id].learnset;
+		for (const moveid in learnset) {
+			const gens = learnset[moveid].map(x => Number(x[0]));
+			const minGen = Math.min(...gens);
+			if (!learnsets[id][moveid]) learnsets[id][moveid] = ''; // should never happen
+			if (minGen === 2) learnsets[id][moveid] = '2' + learnsets[id][moveid];
+			if (minGen === 1) learnsets[id][moveid] = '12' + learnsets[id][moveid];
+		}
+	}
 	const LGLearnsets = Dex.mod('letsgo').data.Learnsets;
 	for (const id in LGLearnsets) {
 		const template = Dex.mod('letsgo').getTemplate(id);
