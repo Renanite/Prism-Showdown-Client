@@ -1380,7 +1380,7 @@ BattleSound.loadBgm('audio/colosseum-miror-b'+ext,896,47462);
 this.bgm='audio/colosseum-miror-b'+ext;
 break;
 case 1:
-BattleSound.loadBgm('audio/06-Battle! Trainer (Naljo)'+ext);
+BattleSound.loadBgm('audio/06-Battle!_Trainer_(Naljo)'+ext);
 this.bgm='06-Battle!_Trainer_(Naljo)'+ext;
 break;}
 
