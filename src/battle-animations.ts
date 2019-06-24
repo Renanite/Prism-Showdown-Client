@@ -1381,7 +1381,7 @@ class BattleScene {
 			break;
 		case 1:
 			BattleSound.loadBgm('audio/06-Battle! Trainer (Naljo)' + ext);
-			this.bgm = 'audio/dpp-trainer' + ext;
+			this.bgm = '06-Battle! Trainer (Naljo)' + ext;
 			break;
 		}
 	}
