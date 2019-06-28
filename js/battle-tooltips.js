@@ -843,6 +843,9 @@ break outer;
 if(item==='choiceband'){
 stats.atk=Math.floor(stats.atk*1.5);
 }
+if(item==='waterring'){
+stats.atk=Math.floor(stats.atk*1.5);
+}
 if(ability==='purepower'||ability==='hugepower'){
 stats.atk*=2;
 }
