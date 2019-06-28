@@ -23,7 +23,8 @@ const Dex = require('../data/Pokemon-Showdown/.sim-dist/dex').Dex;
 Dex.includeModData()
 const toID = Dex.getId;
 process.stdout.write("Loading gen 6 data... ");
-Dex.includeData();
+console.log(Dex.dexes.prism.data.Movedex)
+Object.assign(Dex.data.Movedex, Dex.dexes.prism.data.Movedex)
 console.log("DONE");
 
 function es3stringify(obj) {
@@ -815,8 +816,12 @@ console.log("DONE");
 process.stdout.write("Building `data/pokedex.js`... ");
 
 {
-	const Pokedex = requireNoCache('../data/Pokemon-Showdown/data/pokedex.js').BattlePokedex;
+	const Pokedex = requireNoCache('../data/Pokemon-Showdown/data/pokedex.js').BattlePokedex
+    const prismPokedex = requireNoCache('../data/Pokemon-Showdown/data/mods/prism/pokedex.js').BattlePokedex;
 	for (const id in Pokedex) {
+        if(id in prismPokedex) {
+            Object.assign(Pokedex[id], prismPokedex[id]);
+        }
 		const entry = Pokedex[id];
 		if (Dex.data.FormatsData[id]) {
 			// console.log('formatsentry:' + id);
@@ -841,7 +846,15 @@ console.log("DONE");
 process.stdout.write("Building `data/moves,items,abilities,typechart,learnsets.js`...");
 
 {
-	const Movedex = requireNoCache('../data/Pokemon-Showdown/data/moves.js').BattleMovedex;
+    const Movedex = requireNoCache('../data/Pokemon-Showdown/data/moves.js').BattleMovedex;
+    const prismMovedex = requireNoCache('../data/Pokemon-Showdown/data/mods/prism/moves.js').BattleMovedex;
+    for(const id in prismMovedex) {
+        if(id in Movedex) {
+            Object.assign(Movedex[id], prismMovedex[id]);
+        } else {
+            Movedex[id] = prismMovedex[id];
+        }
+    }
 	const buf = 'exports.BattleMovedex = ' + es3stringify(Movedex) + ';';
 	fs.writeFileSync('data/moves.js', buf);
 }
@@ -852,6 +865,12 @@ process.stdout.write("Building `data/moves,items,abilities,typechart,learnsets.j
 
 {
 	const Items = requireNoCache('../data/Pokemon-Showdown/data/items.js').BattleItems;
+    const prismItems = requireNoCache('../data/Pokemon-Showdown/data/mods/prism/items.js').BattleItems;
+    for(const id in Items) {
+        if(id in prismItems) {
+            Object.assign(Items[id], prismItems[id]);
+        }
+    }
 	const buf = 'exports.BattleItems = ' + es3stringify(Items) + ';';
 	fs.writeFileSync('data/items.js', buf);
 }
@@ -862,6 +881,12 @@ process.stdout.write("Building `data/moves,items,abilities,typechart,learnsets.j
 
 {
 	const Abilities = requireNoCache('../data/Pokemon-Showdown/data/abilities.js').BattleAbilities;
+    const prismAbilities = requireNoCache('../data/Pokemon-Showdown/data/mods/prism/abilities.js').BattleAbilities;
+    for(const id in Abilities) {
+        if(id in prismAbilities) {
+            Object.assign(Abilities[id], prismAbilities[id]);
+        }
+    }
 	const buf = 'exports.BattleAbilities = ' + es3stringify(Abilities) + ';';
 	fs.writeFileSync('data/abilities.js', buf);
 }
@@ -871,7 +896,7 @@ process.stdout.write("Building `data/moves,items,abilities,typechart,learnsets.j
  *********************************************************/
 
 {
-	const TypeChart = requireNoCache('../data/Pokemon-Showdown/data/typechart.js').BattleTypeChart;
+	const TypeChart = requireNoCache('../data/Pokemon-Showdown/data/mods/prism/typechart.js').BattleTypeChart;
 	const buf = 'exports.BattleTypeChart = ' + es3stringify(TypeChart) + ';';
 	fs.writeFileSync('data/typechart.js', buf);
 }
@@ -892,6 +917,12 @@ process.stdout.write("Building `data/moves,items,abilities,typechart,learnsets.j
 
 {
 	const FormatsData = requireNoCache('../data/Pokemon-Showdown/data/formats-data.js').BattleFormatsData;
+    const prismFormatsData = requireNoCache('../data/Pokemon-Showdown/data/mods/prism/formats-data.js').BattleFormatsData;
+    for(const id in FormatsData) {
+        if(id in prismFormatsData) {
+            Object.assign(FormatsData[id], prismFormatsData[id]);
+        }
+    }
 	const buf = 'exports.BattleFormatsData = ' + es3stringify(FormatsData) + ';';
 	fs.writeFileSync('data/formats-data.js', buf);
 }
@@ -901,7 +932,9 @@ process.stdout.write("Building `data/moves,items,abilities,typechart,learnsets.j
  *********************************************************/
 
 {
-	const Learnsets = requireNoCache('../data/Pokemon-Showdown/data/learnsets.js').BattleLearnsets;
+    const Learnsets = requireNoCache('../data/Pokemon-Showdown/data/learnsets.js').BattleLearnsets;
+    const prismLearnsets = requireNoCache('../data/Pokemon-Showdown/data/mods/prism/learnsets.js').BattleLearnsets;
+    Object.assign(Learnsets, prismLearnsets);
 	const buf = 'exports.BattleLearnsets = ' + es3stringify(Learnsets) + ';';
 	fs.writeFileSync('data/learnsets.js', buf);
 }
