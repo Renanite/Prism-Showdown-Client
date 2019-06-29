@@ -85,7 +85,7 @@ log:function(){}};
 var PSURL=function(){
 var prefix='';
 if(document.location.protocol!=='http:')prefix='https:';
-return prefix+'//play.pokemonshowdown.com/';
+return prefix+'//raw.githubusercontent.com/petuuuhhh/Prism-Assets/master/';
 }();var
 
 PSSubscription=function(){

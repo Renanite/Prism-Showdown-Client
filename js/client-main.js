@@ -54,7 +54,7 @@ PSPrefs=function(_PSModel){_inheritsLoose(PSPrefs,_PSModel);
 
 
 function PSPrefs(){var _this;
-_this=_PSModel.call(this)||this;_this.dark=false;_this.nogif=null;_this.showjoins=null;_this.onepanel=false;_this.storageEngine='';_this.storage={};_this.origin='https://play.pokemonshowdown.com';
+_this=_PSModel.call(this)||this;_this.dark=false;_this.nogif=null;_this.showjoins=null;_this.onepanel=false;_this.storageEngine='';_this.storage={};_this.origin='https://petmodpalace.herokuapp.com';
 
 for(var _key in _assertThisInitialized(_this)){
 var value=_assertThisInitialized(_this)[_key];
