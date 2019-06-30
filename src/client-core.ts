@@ -85,7 +85,7 @@ if (!window.console) {
 const PSURL = (() => {
 	let prefix = '';
 	if (document.location!.protocol !== 'http:') prefix = 'https:';
-	return prefix + '//play.pokemonshowdown.com/';
+	return prefix + '//raw.githubusercontent.com/petuuuhhh/Prism-Assets/master/';
 })();
 
 class PSSubscription {

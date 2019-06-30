@@ -52,7 +52,7 @@ class PSPrefs extends PSModel {
 
 	storageEngine: 'localStorage' | 'iframeLocalStorage' | '' = '';
 	storage: {[k: string]: any} = {};
-	readonly origin = 'https://play.pokemonshowdown.com';
+	readonly origin = 'https://petmodpalace.herokuapp.com';
 	constructor() {
 		super();
 

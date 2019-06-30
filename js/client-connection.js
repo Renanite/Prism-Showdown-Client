@@ -57,7 +57,7 @@ var PSLoginServer=new(function(){function _class(){}var _proto2=_class.prototype
 query=function query(data,callback){
 var url='/~~'+PS.server.id+'/action.php';
 if(location.pathname.endsWith('.html')){
-url='https://play.pokemonshowdown.com'+url;
+url='https://github.com/Petuuuhhh/Pokemon-Showdown'+url;
 
 if(typeof POKEMON_SHOWDOWN_TESTCLIENT_KEY==='string'){
 
