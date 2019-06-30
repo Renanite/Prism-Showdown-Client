@@ -701,6 +701,14 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
             }
         }
     }
+	const CrystalClearLearnsets = Dex.mod('crystalclear').data.Learnsets;
+    for (const id in CrystalClearLearnsets) {
+            const learnset = CrystalClearLearnsets[id].learnset;
+            learnsets[id] = {};
+            for (const move in learnset) {
+                learnsets[id][move] = '12';
+        }
+    }
 	const LGLearnsets = Dex.mod('letsgo').data.Learnsets;
 	for (const id in LGLearnsets) {
 		const template = Dex.mod('letsgo').getTemplate(id);
