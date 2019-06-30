@@ -693,12 +693,10 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 	}
 	const PrismLearnsets = Dex.mod('prism').data.Learnsets;
     for (const id in PrismLearnsets) {
-        if(!(id in learnsets)) {
             const learnset = PrismLearnsets[id].learnset;
             learnsets[id] = {};
             for (const move in learnset) {
                 learnsets[id][move] = '1234567pq';
-            }
         }
     }
 	const CrystalClearLearnsets = Dex.mod('crystalclear').data.Learnsets;
